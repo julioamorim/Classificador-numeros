@@ -1,4 +1,8 @@
 #include <fann.h>
+#include <iostream>
+#include "validacao.hpp"
+
+using namespace std;
 
 int main()
 {
@@ -9,6 +13,10 @@ int main()
     const float erro_maximo = 0.0f;
     const unsigned int max_epocas = 50000;
     const unsigned int epocas_entre_impressoes = 100;
+    const unsigned int epocas_entre_testes = 100;
+
+    unsigned int cont = 0;
+    float melhor_erro = 1.0f;
 
     struct fann *rede = fann_create_standard(camadas, entradas,
             neuronios_escondidos,saidas);
@@ -19,10 +27,19 @@ int main()
     fann_set_training_algorithm(rede, FANN_TRAIN_INCREMENTAL);
     fann_set_learning_rate(rede, 0.05f);
 
-    fann_train_on_file(rede, "input/treinamento/optdigits2.tra", max_epocas,
+    while(cont < max_epocas){
+        fann_train_on_file(rede, "input/treinamento/optdigits2.tra", epocas_entre_testes,
             epocas_entre_impressoes, erro_maximo);
 
-    fann_save(rede, "number_classify.net");
+        float erro = validacao(rede);
+        if(erro < melhor_erro){
+            fann_save(rede, "number_classify.best.net");
+            melhor_erro = erro;
+        }
+
+        cont+= epocas_entre_testes;
+        cout << cont << " Épocas. Erro: " << erro << endl;
+    }
 
     fann_destroy(rede);
 
