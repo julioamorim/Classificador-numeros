@@ -17,10 +17,10 @@ float bin_to_float(float * vetor, int tamanho){
 }
 
 int main(){
-    struct fann *ann = fann_create_from_file("number_classify.net");
+    struct fann *ann = fann_create_from_file("number_classify.best.net");
 
     float entradas[64], saida_real[10];
-    ifstream arq("input/teste/optdigits2.tes");
+    ifstream arq("input/teste/teste.convertido.tes");
     int linhas, n_entradas, n_saidas;
     arq >> linhas >> n_entradas >> n_saidas;
 

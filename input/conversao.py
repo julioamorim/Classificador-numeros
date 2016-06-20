@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-fw = open('optdigits2.tes','w')
+fw = open('validacao/validacao.convertida.tes','w')
 
-fw.write('1797 64 10\n') # 3823 linhas, 64 entradas, 10 saídas (0-10, formato FANN)
+fw.write('899 64 10\n') # 3823 linhas, 64 entradas, 10 saídas (0-10, formato FANN)
 
-f = open('teste/optdigits.tes')
+f = open('validacao/validacao.tes')
 
 for line in f:
     item = line[:-1].split(',')

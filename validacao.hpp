@@ -15,7 +15,7 @@ float bin_to_float(float * vetor, int tamanho){
 float validacao(struct fann * rede) {
     float entradas[64], saida_real[10];
     int linhas, n_entradas, n_saidas;
-    ifstream arq("input/teste/optdigits2.tes");
+    ifstream arq("input/validacao/validacao.convertida.tes");
     arq >> linhas >> n_entradas >> n_saidas;
 
     int erros =0, acertos = 0;

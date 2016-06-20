@@ -11,7 +11,7 @@ int main()
     const unsigned int camadas = 3;
     const unsigned int neuronios_escondidos = 55;
     const float erro_maximo = 0.0f;
-    const unsigned int max_epocas = 50000;
+    const unsigned int max_epocas = 20000;
     const unsigned int epocas_entre_impressoes = 100;
     const unsigned int epocas_entre_testes = 100;
 
