@@ -32,5 +32,5 @@ float validacao(struct fann * rede) {
         else
             erros++;
     }
-    return float(acertos)/linhas;
+    return float(erros)/linhas;
 }
