@@ -3,11 +3,12 @@
 
 using std::ifstream;
 
-float bin_to_float(float * out_real, float * out_nn){
-    float sum = 0;
-    for(int i = 0; i < SIZE_OUT; i++)
-        sum+=(out_real[i] - out_nn[i])*(out_real[i] - out_nn[i]);
-    return sum/SIZE_OUT;
+float bin_to_float(float * v){
+    int max = 0;
+    for(int i = 1; i < SIZE_OUT; i++)
+        if(v[i] > v[max])
+            max = i;
+    return float(max);
 }
 
 float validacao(struct fann * rede) {
@@ -16,7 +17,7 @@ float validacao(struct fann * rede) {
     ifstream arq("input/validacao/validacao.convertida.tes");
     arq >> linhas >> n_entradas >> n_saidas;
     
-    float erro_quadrado_medio =0;
+    int erros = 0;
 
     for(int k = 0; k < linhas; k++){
         for(int i = 0; i < n_entradas; i++)
@@ -25,9 +26,11 @@ float validacao(struct fann * rede) {
             arq >> saida_real[i];
 
         float * saidas = fann_run(rede, entradas);              //calcula as saídas da rede para validação
-      
-        erro_quadrado_medio+=bin_to_float(saida_real, saidas);
+        float s_rede = bin_to_float(saidas), s_real = bin_to_float(saida_real);
         
+        if(s_rede != s_real)
+            erros++;
+      
     }
-    return erro_quadrado_medio/linhas;
+    return float(erros)/linhas;
 }

@@ -1,4 +1,5 @@
 #include "defs.hh"
+#include "validacao.hpp"
 
 using namespace std;
 
@@ -10,7 +11,6 @@ int main(int argc, char *argv[])
     unsigned int neuronios_escondidos;
     unsigned int cont = 0;
     float melhor_erro = 1.0f;
-
 
     if (argc > 1)
         neuronios_escondidos = atoi(argv[1]);
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
     while(cont < max_epocas){      
         fann_shuffle_train_data(train);   //randomiza os dados de treinamento
-        fann_train_on_data(rede, train, epocas_entre_testes, epocas_entre_impressoes, erro_maximo);
+        fann_train_on_data(rede, train, epocas_entre_testes, 0, erro_maximo);
    
         float erro = fann_test_data(rede, validation);
         if(erro < melhor_erro){
@@ -52,7 +52,8 @@ int main(int argc, char *argv[])
         }
 
         cont+= epocas_entre_testes;
-        cout << cont << " Épocas. Erro: " << erro << endl;
+        cout << cont << " Épocas. MSE: " << erro << ". Taxa de erro: " 
+            << (validacao(rede)*100.) << "% " << endl;
         output << cont << "," << erro << endl;
     }
 
