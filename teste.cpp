@@ -1,11 +1,7 @@
-#include <iostream>
-#include <fstream>
-#include <cstdio>
-#include <climits>
-#include <fann.h>
-#include <iomanip>
-using namespace std;
+#include "defs.hh"
 
+
+using namespace std;
 
 float bin_to_float(float * vetor, int tamanho){
     int max = 0;
