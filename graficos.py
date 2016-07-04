@@ -21,4 +21,4 @@ for line in f:
     epocas.append(int(s[0]))
     mse.append(float(s[1]))
 
-plotly.offline.plot({"data":[Scatter(x=epocas, y=mse)],"layout":Layout(title="Aprendizagem")})
+plotly.offline.plot({"data":[Scatter(x=epocas, y=mse)],"layout":Layout(title="Aprendizagem: " + fname)})
