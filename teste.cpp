@@ -1,3 +1,13 @@
+/* ***************************************************************************
+ * @Autores:     Rafael Hengen Ribeiro, Regis Thiago Feyh, Ricardo Parizotto *
+ * @Matrículas:  1311100016,            1311100012,        1311100007        *
+ * @E-mails:     rafaelhr.ribeiro@gmail.com, registhiagofeyh@gmail.com       *
+ *               ricardo.dparizotto@gmail.com                                *
+ * --------------------------------------------------------------------------*
+ * Executa o teste de uma rede neural dado o arquivo .net como parâmetro     *
+ * --------------------------------------------------------------------------*/
+
+
 #include "defs.hh"
 
 
