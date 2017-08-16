@@ -16,18 +16,18 @@ Fedora 23-24
 Para a geração de gráficos é necessário ter um interpretador python com a versão >= 2.7, o programa pip
 e a biblioteca plotly, cuja instalação é descrita abaixo.
 
-###Instalação do pip
-####Fedora 21-22/Red Hat/CentOS
+### Instalação do pip
+#### Fedora 21-22/Red Hat/CentOS
 Python 2.7: <pre>su -c "yum install python-pip"</pre>
 Python 3: <pre>su -c "yum install python3-pip"</pre>
-####Fedora 23-24
+#### Fedora 23-24
 Python 2.7: <pre>sudo dnf install python-pip</pre>
 Python 3: <pre>sudo dnf install python3-pip</pre>
-####Ubuntu/Linux Mint/Debian
+#### Ubuntu/Linux Mint/Debian
 Python 2.7: <pre>sudo apt-get install python-pip</pre>
 Python 3: <pre>sudo apt-get install python3-pip</pre>
 
-###Instalação do Plotly
+### Instalação do Plotly
 Python 2.7: <pre>sudo pip install plotly</pre>
 Python 3: <pre>sudo pip3 install plotly</pre>
 
